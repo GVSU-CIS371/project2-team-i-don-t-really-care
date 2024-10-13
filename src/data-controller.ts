@@ -10,12 +10,28 @@ function generateProductHTML(product: Product): string {
 }
 
 function renderProducts(prods: Product[]): void {
-    // your code
+    const mainContainer = document.getElementById("main-container");
+
+    if (mainContainer) {
+        // Clear the container before adding products
+        mainContainer.innerHTML = '';
+
+        // Loop through the products and append the generated HTML
+        prods.forEach(product => {
+            mainContainer.innerHTML += generateProductHTML(product);
+        });
+    }
 }
 
+
 function getByCategory(category: string): void {
-    // your code
+    // Filter the products based on the category
+    const filteredProducts = products.filter(product => product.category === category);
+    
+    // Render the filtered products
+    renderProducts(filteredProducts);
 }
+
 
 function getByRating(minRating: number): void {
     // your code
