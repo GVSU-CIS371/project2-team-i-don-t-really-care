@@ -37,4 +37,50 @@ function getByRating(minRating: number): void {
     // your code
 }
 
+
+//Function that displays all the electronics
+function displayElectronics(event: MouseEvent): void {
+    const electronics = getByCategory('Electronics');
+}
+//Event listener for electronics
+const clickElectronics = document.getElementById('electronics');
+if (clickElectronics) {
+  clickElectronics.addEventListener('click', displayElectronics);
+}
+
+
+//Function that displays all the clothing
+function displayClothing(event: MouseEvent): void {
+    const clothing = getByCategory('Clothing');
+}
+//Event listener for clothing
+const clothingLink = document.getElementById('clothing');
+if (clothingLink) {
+  clothingLink.addEventListener('click', displayClothing);
+}
+
+
+//Funtion that displays all the groceries
+function displayGroceries(event: MouseEvent): void {
+    const groceries = getByCategory('Groceries');
+}
+//Event listener for groceries
+const groceriesLink = document.getElementById('groceries');
+if(groceriesLink){
+groceriesLink.addEventListener('click', displayGroceries);
+}
+
+
+/*
+//Funtion that displays all the best sellers
+function displayBestSeller(event: MouseEvent): void {
+    const best = getByRating(4.5);
+}
+//Event listener for best sellers
+const bestSellerLink = document.getElementById('bestseller');
+if(bestSellerLink){
+    bestSellerLink.addEventListener('click', displayBestSeller);
+}
+*/
+
 export { renderProducts, getByCategory, getByRating };
