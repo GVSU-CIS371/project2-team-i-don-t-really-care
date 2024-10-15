@@ -14,73 +14,71 @@ function renderProducts(prods: Product[]): void {
 
     if (mainContainer) {
         // Clear the container before adding products
-        mainContainer.innerHTML = '';
+        mainContainer.innerHTML = "";
 
         // Loop through the products and append the generated HTML
-        prods.forEach(product => {
+        prods.forEach((product) => {
             mainContainer.innerHTML += generateProductHTML(product);
         });
     }
 }
 
-
 function getByCategory(category: string): void {
     // Filter the products based on the category
-    const filteredProducts = products.filter(product => product.category === category);
-    
+    const filteredProducts = products.filter(
+        (product) => product.category === category
+    );
+
     // Render the filtered products
     renderProducts(filteredProducts);
 }
 
-
 function getByRating(minRating: number): void {
-    // your code
-}
+    // Filter products by highest rated
+    const filteredProducts = products.filter((product) => product.rating > 4.5);
 
+    // Render the filtered products
+    renderProducts(filteredProducts);
+}
 
 //Function that displays all the electronics
 function displayElectronics(event: MouseEvent): void {
-    const electronics = getByCategory('Electronics');
+    const electronics = getByCategory("Electronics");
 }
 //Event listener for electronics
-const clickElectronics = document.getElementById('electronics');
+const clickElectronics = document.getElementById("electronics");
 if (clickElectronics) {
-  clickElectronics.addEventListener('click', displayElectronics);
+    clickElectronics.addEventListener("click", displayElectronics);
 }
-
 
 //Function that displays all the clothing
 function displayClothing(event: MouseEvent): void {
-    const clothing = getByCategory('Clothing');
+    const clothing = getByCategory("Clothing");
 }
 //Event listener for clothing
-const clothingLink = document.getElementById('clothing');
+const clothingLink = document.getElementById("clothing");
 if (clothingLink) {
-  clothingLink.addEventListener('click', displayClothing);
+    clothingLink.addEventListener("click", displayClothing);
 }
-
 
 //Funtion that displays all the groceries
 function displayGroceries(event: MouseEvent): void {
-    const groceries = getByCategory('Groceries');
+    const groceries = getByCategory("Groceries");
 }
 //Event listener for groceries
-const groceriesLink = document.getElementById('groceries');
-if(groceriesLink){
-groceriesLink.addEventListener('click', displayGroceries);
+const groceriesLink = document.getElementById("groceries");
+if (groceriesLink) {
+    groceriesLink.addEventListener("click", displayGroceries);
 }
 
-
-/*
 //Funtion that displays all the best sellers
 function displayBestSeller(event: MouseEvent): void {
     const best = getByRating(4.5);
 }
 //Event listener for best sellers
-const bestSellerLink = document.getElementById('bestseller');
-if(bestSellerLink){
-    bestSellerLink.addEventListener('click', displayBestSeller);
+const bestSellerLink = document.getElementById("bestSeller");
+if (bestSellerLink) {
+    bestSellerLink.addEventListener("click", displayBestSeller);
 }
-*/
 
 export { renderProducts, getByCategory, getByRating };
